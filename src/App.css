@@ -220,7 +220,7 @@ body {
   flex-wrap: wrap;
 }
 .todo > * {
-  flex: 0 0 50%;
+  flex: 0 0 100%;
 }
 .todo-text {
   width: 100%;
