@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState }  from "react";
 
 export default function Todo(props) {
   const [isEditing, setEditing] = useState(false);
-  const [newName, setNewName] = useState('');
+  const [newName, setNewName] = useState();
   const name = props.name;
   const task_completed = props.completed;
   const id = props.id;
-
+  function handleTemplateChange(){
+    setEditing(true)
+    setNewName(props.name);
+  }
   function handleChange(e) {
     setNewName(e.target.value);
   }
@@ -20,14 +23,14 @@ export default function Todo(props) {
     <form className="stack-small" onSubmit={handleSubmit}>
       <div className="form-group">
         <label className="todo-label" htmlFor={props.id}>
-          New name for {props.name}
+          Editing {props.name}
         </label>
         <input
           id={props.id}
           className="todo-text"
           type="text"
           value={newName}
-          onChange={handleChange}        
+          onChange={handleChange}
         />
       </div>
       <div className="btn-group">
@@ -60,7 +63,7 @@ export default function Todo(props) {
         </label>
       </div>
       <div className="btn-group">
-        <button type="button" className="btn" onClick={() => setEditing(true)}>
+        <button type="button" className="btn" onClick={() => handleTemplateChange()}>
           {" "}
           Edit <span className="visually-hidden">{props.name}</span>
         </button>
