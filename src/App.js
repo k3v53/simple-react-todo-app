@@ -25,7 +25,6 @@ if (lh.get == null) {
 }
 navigator.storage.persist()
 function App(props) {
-  console.log(lh.get)
   const [tasks, setTasks] = useState(lh.get);
   const [filter, setFilter] = useState('All');
   function addTask(name) {
@@ -85,7 +84,6 @@ function App(props) {
     lh.set(editedTaskList);
     setTasks(editedTaskList);
   }
-  console.log(props.tasks);
   const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
   const headingText = `${taskList.length} ${tasksNoun} remaining`;
   return (

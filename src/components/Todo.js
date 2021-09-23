@@ -3,9 +3,6 @@ import React, { useState }  from "react";
 export default function Todo(props) {
   const [isEditing, setEditing] = useState(false);
   const [newName, setNewName] = useState();
-  const name = props.name;
-  const task_completed = props.completed;
-  const id = props.id;
   function handleTemplateChange(){
     setEditing(true)
     setNewName(props.name);
